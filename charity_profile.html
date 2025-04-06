@@ -1,56 +1,219 @@
-<!-- charity_profile.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HelpHub - Charity Profiles</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f6f9fb; }
-    header, footer { background-color: #005f73; color: white; padding: 1rem 2rem; }
-    nav a { color: white; margin-right: 15px; text-decoration: none; }
-    .container { display: flex; padding: 2rem; }
-    .sidebar { flex: 1; display: flex; flex-direction: column; gap: 1rem; }
-    .sidebar div { width: 100px; height: 100px; background: #ccc; }
-    .main { flex: 3; padding: 0 2rem; }
-    .main img { width: 100%; height: 200px; background: #ccc; display: block; margin-bottom: 1rem; }
-    .main button { padding: 0.75rem 1.5rem; border: 1px solid #005f73; color: #005f73; background: white; cursor: pointer; border-radius: 5px; margin-top: 1rem; }
-    .note { padding: 1rem 2rem; }
-    footer { display: flex; justify-content: space-between; align-items: center; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpHub - Charity Profile</title>
+    <style>
+        /* Reuse all the same styles from index.html */
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .charity-list {
+            background-color: #3498db;
+            padding: 10px 0;
+        }
+        
+        .charity-list a {
+            color: white;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .charity-list a:hover {
+            background-color: #2980b9;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+            background-color: #f1f1f1;
+        }
+        
+        /* Charity Profile Section */
+        .charity-profile {
+            padding: 50px 0;
+        }
+        
+        .profile-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .charity-profile h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .charity-profile p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .charity-profile p strong {
+            color: #2c3e50;
+        }
+        
+        .volunteer-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto 0;
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        
+        .volunteer-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #ecf0f1;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="charity.html">Charity Profile </a>
-      <a href="charity_profile.html">Charities List </a>
-      <a href="#">About Us</a>
-      <strong style="margin-left: 30px;">HelpHub</strong>
-      <a href="#" style="margin-left: auto;">Privacy Policy</a>
-    </nav>
-  </header>
-  <div class="container">
-    <div class="sidebar">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="main">
-      <h2>Charity A</h2>
-      <h3>Charity B</h3>
-      <h3>Charity C</h3>
-      <img src="" alt="Charity image">
-      <button>View Profile</button>
-    </div>
-  </div>
-  <div class="note">
-    <p>Find volunteer opportunities near you and support your communities</p>
-  </div>
-  <footer>
-    <a href="#">About Us</a>
-    <a href="#">Privacy Policy</a>
-  </footer>
+    <header>
+        <div class="charity-list container">
+            <a href="charity.html#charity-a">Charity A</a>
+            <a href="charity.html#charity-b">Charity B</a>
+            <a href="charity.html#charity-c">Charity C</a>
+        </div>
+        
+        <div class="container nav-container">
+            <div class="logo">Help<span>Hub</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="charity.html">Charities List</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="charity-profile container">
+        <div class="profile-container">
+            <h2>Charity A</h2>
+            <p><strong>Description and Mission:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p><strong>Address:</strong> 123 Charity Street, Helpington, HT 12345</p>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Website:</strong> <a href="https://www.charitya.example" target="_blank">www.charitya.example</a></p>
+            <a href="#" class="volunteer-btn">Volunteer Now</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact</a>
+            </div>
+            <p class="copyright">© 2023 HelpHub. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
 
