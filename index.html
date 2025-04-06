@@ -1,61 +1,277 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HelpHub - Home</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f6f9fb; }
-    header, footer { background-color: #005f73; color: white; padding: 1rem 2rem; }
-    nav a { color: white; margin-right: 15px; text-decoration: none; }
-    .hero { text-align: center; padding: 2rem; background-color: #e0fbfc; }
-    .cards { display: flex; justify-content: space-around; padding: 2rem; }
-    .card { background: white; border-radius: 10px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 30%; }
-    .card h3 { color: #005f73; }
-    .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 6px; background: #ccc; }
-    footer { display: flex; justify-content: space-between; align-items: center; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpHub - Home</title>
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .charity-list {
+            background-color: #3498db;
+            padding: 10px 0;
+        }
+        
+        .charity-list a {
+            color: white;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .charity-list a:hover {
+            background-color: #2980b9;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+            background-color: #f1f1f1;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: 50px 0;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-content {
+            padding: 25px;
+        }
+        
+        .category-card h3 {
+            color: #3498db;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .category-card h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #2c3e50;
+        }
+        
+        .category-card p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .read-more {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .read-more:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #ecf0f1;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="charity.html">Charities List</a>
-      <a href="charity_profile.html">Contact</a>
-      <strong style="margin-left: 30px;">HelpHub</strong>
-    </nav>
-  </header>
-  <div class="hero">
-    <h1>Help and Support Others</h1>
-    <p>Contacting Volunteer Opportunities Near You</p>
-  </div>
-  <section class="cards">
-    <div class="card">
-      <img src="" alt="Animal Help">
-      <h4>Animal</h4>
-      <h3>Protect Mother Nature</h3>
-      <p>Save the wildlife that are suffering from climate and other struggles.</p>
-      <a href="charity.html">Read more</a>
-    </div>
-    <div class="card">
-      <img src="" alt="Education Help">
-      <h4>Education</h4>
-      <h3>Help others get education to further their careers</h3>
-      <p>Donate to help others who can't afford to go to school and get a proper education.</p>
-      <a href="charity.html">Read more</a>
-    </div>
-    <div class="card">
-      <img src="" alt="Health Help">
-      <h4>Health</h4>
-      <h3>Save a life</h3>
-      <p>Help someone that can't afford their hospital bills so they can get better and rise to greater heights.</p>
-      <a href="charity.html">Read more</a>
-    </div>
-  </section>
-  <footer>
-    <a href="#">About Us</a>
-    <a href="#">Privacy Policy</a>
-  </footer>
+    <header>
+        <div class="charity-list container">
+            <a href="charity.html#charity-a">Charity A</a>
+            <a href="charity.html#charity-b">Charity B</a>
+            <a href="charity.html#charity-c">Charity C</a>
+        </div>
+        
+        <div class="container nav-container">
+            <div class="logo">Help<span>Hub</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="charity.html">Charities List</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Help and Support Others</h1>
+            <p>Connecting volunteers with opportunities near you to make a difference in your community.</p>
+        </div>
+    </section>
+    
+    <section class="categories container">
+        <h2>How You Can Help</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <div class="category-content">
+                    <h3>Animal</h3>
+                    <h4>Protect Mother Nature</h4>
+                    <p>Save the wildlife that are suffering from climate and other struggles.</p>
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-content">
+                    <h3>Education</h3>
+                    <h4>Help others get education to further their careers</h4>
+                    <p>Donate to help others who can't afford to go to school and get a proper education.</p>
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-content">
+                    <h3>Health</h3>
+                    <h4>Save a life</h4>
+                    <p>Help someone that can't afford their hospital bills so they can get better and rise to greater heights.</p>
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact</a>
+            </div>
+            <p class="copyright">© 2023 HelpHub. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
