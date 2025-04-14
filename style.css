@@ -1,1 +1,152 @@
 
+
+/* Importing a Google Font for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f6f9fb;
+  color: #333;
+  line-height: 1.6;
+}
+
+header, footer {
+  background-color: #005f73;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:focus, nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem;
+  background-color: #e0fbfc;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 30%;
+  min-width: 280px;
+}
+
+.card h3 {
+  color: #005f73;
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #ccc;
+}
+
+.container {
+  display: flex;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 120px;
+}
+
+.sidebar div {
+  width: 100px;
+  height: 100px;
+  background: #ccc;
+  border-radius: 8px;
+}
+
+.main {
+  flex: 3;
+  padding: 0 2rem;
+  min-width: 250px;
+}
+
+.main img {
+  width: 100%;
+  height: 200px;
+  background: #ccc;
+  display: block;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+
+button, .main button, .card a, .content button {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #005f73;
+  color: #005f73;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+button:focus, .main button:focus, .card a:focus {
+  outline: 3px solid #94d2bd;
+}
+
+button:hover, .main button:hover, .card a:hover {
+  background: #005f73;
+  color: white;
+}
+
+.note, .content {
+  padding: 2rem;
+}
+
+.content img {
+  width: 150px;
+  height: 150px;
+  background: #ccc;
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+a:focus {
+  outline: 2px dashed #94d2bd;
+  outline-offset: 4px;
+}
