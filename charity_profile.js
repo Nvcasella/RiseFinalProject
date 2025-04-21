@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const btn = document.getElementById("volunteerBtn");
-  <a href="#" id="volunteerBtn" class="volunteer-btn">Volunteer Now</a>
+
 
     // Create the form (initially hidden)
     const formContainer = document.createElement("div");
